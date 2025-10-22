@@ -16,7 +16,7 @@
 #define STATE_ACTIVE 5   // Connection active
 #define STATE_CONNFAIL 6 // Connection failed
 #define STATE_DISCONN 7  // Disconnected
-static int clientState = STATE_INIT;
+extern int clientState;
 
 // Define delay time for displays in seconds.
 #define DELAY_STATEPAUSE 2 // Delay time to see state where needed
@@ -35,8 +35,9 @@ static int clientState = STATE_INIT;
 // careful of byte ordering.
 //
 // ** UPDATE THIS VALUE TO MATCH YOUR SERVER DEVICE. **
-static uint8_t bd_addr[6] = {0x00, 0x00, 0x00,
-                             0x00, 0x00, 0x00}; // Kit NN BLE MAC address
+
+// Kit 27 BLE MAC address
+static uint8_t bd_addr[6] = {0x5a, 0x51, 0x1f, 0xf1, 0xf7, 0x2c};
 extern BLEAddress TempServer;
 
 // Define BLE scan duration in seconds. 5 seconds is generally a good value, but
@@ -57,18 +58,6 @@ extern unsigned long scanFailedTime;
 #define SENSOR_SERVICE_UUID "019971b3-31c5-73de-8e9e-e47c22fc0c87"
 #define TEMP_CHARACTERISTIC_UUID "019971b3-31c5-73de-8e9e-e47c22fc0c88"
 #define HUMIDITY_CHARACTERISTIC_UUID "019971b3-31c5-73de-8e9e-e47c22fc0c8a"
-
-// Convert these UUIDs from character strings to BLEUUID types.
-static BLEUUID serviceUUID(SENSOR_SERVICE_UUID);
-static BLEUUID tempCharUUID(TEMP_CHARACTERISTIC_UUID);
-static BLEUUID humiCharUUID(HUMIDITY_CHARACTERISTIC_UUID);
-
-// Declare global variables for the pointers to the temperature characteristics
-// at the remote endpoint (the server) and for the server device which has
-// advertised itself.
-static BLERemoteCharacteristic *pRemoteTempCharacteristic;
-static BLERemoteCharacteristic *pRemoteHumiCharacteristic;
-static BLEAdvertisedDevice *myDevice;
 
 // Define the callback routine for new temperature data from the server from a
 // notification. Display the temperature value. The callback parameters provide

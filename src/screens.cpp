@@ -3,6 +3,22 @@
 
 TFT_eSPI tft;
 
+// home screen
+void screenHome() {
+    tft.setFreeFont(FSS12);
+    tft.setTextColor(TFT_WHITE);
+    tft.fillScreen(TFT_BLACK);
+    tft.setTextDatum(MC_DATUM);
+
+    tft.drawString("Project 5", 160, 15);
+    tft.drawString("Tolu Kolade", 160, 78);
+    tft.drawString("toluk@vt.edu", 160, 102);
+    tft.drawString("Alex Halloran", 160, 150);
+    tft.drawString("alexanderha22@vt.edu", 160, 175);
+    tft.drawString("ECE 4984 Fall 2025", 160, 210);
+    
+}
+
 // Display the server state at the bottom of the screen by displaying the
 // provided string.
 void displayState(String stateMessage) {

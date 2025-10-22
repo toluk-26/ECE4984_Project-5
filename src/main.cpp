@@ -23,12 +23,20 @@
     Classroom, Lakshantha Dissanayake (lakshanthad), at:
     https://github.com/lakshanthad/Wio_Terminal_Classroom_Arduino.
 */
+#include <Arduino.h>
+
 #include "functions.hpp"
 #include "screens.hpp"
-#include <Arduino.h>
 
 // Setup function.
 void setup() {
+        // Initialize the display by starting the TFT LCD and setting screen
+    // rotation. The screen rotation is set for "landscape" mode with the USB
+    // connector at the bottom of the screen.
+    tft.begin();
+    tft.setRotation(3);
+
+    screenHome();
 
 #ifdef DEBUG
     Serial.begin(115200);
@@ -36,11 +44,6 @@ void setup() {
     };
 #endif
 
-    // Initialize the display by starting the TFT LCD and setting screen
-    // rotation. The screen rotation is set for "landscape" mode with the USB
-    // connector at the bottom of the screen.
-    tft.begin();
-    tft.setRotation(3);
 
     // Display blank area for data source. Draw the area for displaying
     // temperature.

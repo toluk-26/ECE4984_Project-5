@@ -11,6 +11,9 @@
 // Instantiate the TFT for display.
 extern TFT_eSPI tft;
 
+// display Home Screen
+void screenHome();
+
 // Draw the screen area for displaying temperature.
 void drawValues();
 
