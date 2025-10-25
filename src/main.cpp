@@ -23,8 +23,16 @@
     Classroom, Lakshantha Dissanayake (lakshanthad), at:
     https://github.com/lakshanthad/Wio_Terminal_Classroom_Arduino.
 */
-#include <Arduino.h>
 
+
+/**
+ * Modified: Oct 24, 2025 - Tolu Kolade (toluk@vt.edu), Alex Halloran (alexanderha22@vt.edu)
+ * ECE 4984/5984 - Fall 2025
+ * Design Project 5
+ * instructions are in the readme.md
+ */
+
+#include <Arduino.h>
 #include "functions.hpp"
 #include "screens.hpp"
 
